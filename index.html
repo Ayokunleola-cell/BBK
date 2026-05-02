@@ -396,19 +396,97 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
 .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .9s ease,transform .9s ease;}
 .reveal-right.visible{opacity:1;transform:translateX(0);}
 
-/* RESPONSIVE */
+/* RESPONSIVE — TABLET */
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;}
   .nav-links{display:none;}
   .hero-content{margin-left:0;padding:8rem 2rem 4rem;}
-  .hero-img-left{width:100%;mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.6) 60%);}
-  .vision-inner,.africa-inner{grid-template-columns:1fr;gap:3rem;}
+  .hero-img-left{width:100%;mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.6) 60%);-webkit-mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.6) 60%);}
+  .vision-inner,.africa-inner{grid-template-columns:1fr;gap:3rem;padding:0 2rem;}
   .compare-grid{grid-template-columns:1fr;}
   .compare-vs{writing-mode:horizontal-tb;padding:1rem;text-align:center;}
   .pillars-grid,.solas-grid,.ev-methods,.messages-grid{grid-template-columns:1fr 1fr;}
-  .footer-inner{grid-template-columns:1fr 1fr;}
-  .jesus-full-img,.king-img{width:100%;mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.5) 70%);}
+  .pillars-inner,.reformation-inner,.evangelism-inner,.messages-inner{padding:0 2rem;}
+  .footer-inner{grid-template-columns:1fr 1fr;padding:0 2rem;}
+  .jesus-full-img,.king-img{width:100%;mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.5) 70%);-webkit-mask-image:linear-gradient(to top,transparent 0%,rgba(0,0,0,.5) 70%);}
   .sacrifice-content,.king-content{margin-left:0;padding:6rem 2rem;}
+  .evangelism-header{grid-template-columns:1fr;gap:2rem;}
+  .africa-map-wrap{width:280px;height:280px;}
+}
+
+/* RESPONSIVE — MOBILE */
+@media(max-width:600px){
+  nav{padding:.8rem 1rem;}
+  .nav-brand{font-size:.7rem;letter-spacing:.2em;}
+  .nav-cta{font-size:.6rem;padding:.4rem .8rem;}
+
+  #hero{min-height:100vh;}
+  .hero-content{padding:7rem 1.2rem 3rem;}
+  .hero-title{font-size:clamp(2.2rem,10vw,3.5rem);}
+  .hero-sub{font-size:.95rem;}
+  .hero-body{font-size:.95rem;}
+  .hero-btns{flex-direction:column;gap:.75rem;}
+  .btn-primary,.btn-outline{width:100%;text-align:center;justify-content:center;display:inline-flex;}
+
+  #hosea-banner{padding:3rem 1.2rem;}
+  .hosea-text{font-size:clamp(1.1rem,5vw,1.5rem);padding:0 .5rem;}
+
+  #vision{padding:4rem 0;}
+  .vision-inner{padding:0 1.2rem;gap:2rem;}
+  .vision-title{font-size:clamp(1.5rem,7vw,2rem);}
+  .model-card{padding:1.5rem 1rem;}
+  .model-chain{flex-wrap:wrap;}
+
+  #sacrifice{min-height:auto;}
+  .sacrifice-content{padding:4rem 1.2rem 3rem;}
+  .section-title-big{font-size:clamp(1.6rem,8vw,2.5rem);}
+
+  #pillars{padding:4rem 0;}
+  .pillars-inner{padding:0 1.2rem;}
+  .pillars-grid{grid-template-columns:1fr;gap:1px;}
+  .pillars-header{margin-bottom:2rem;}
+  .pillars-title{font-size:clamp(1.5rem,7vw,2rem);}
+  .pillar-card{padding:1.8rem 1.2rem;}
+
+  #africa{padding:4rem 0;}
+  .africa-inner{padding:0 1.2rem;gap:2rem;}
+  .africa-title{font-size:clamp(1.5rem,7vw,2rem);}
+  .africa-right{display:none;}
+
+  #reformation{padding:4rem 0;}
+  .reformation-inner{padding:0 1.2rem;}
+  .reformation-title{font-size:clamp(1.4rem,7vw,2rem);}
+  .compare-grid{grid-template-columns:1fr;gap:.5rem;}
+  .compare-col{padding:1.5rem 1rem;}
+  .solas-grid{grid-template-columns:1fr;gap:1px;}
+  .sola-card{padding:1.5rem 1rem;}
+
+  #evangelism{padding:4rem 0;}
+  .evangelism-inner{padding:0 1.2rem;}
+  .evangelism-header{grid-template-columns:1fr;gap:1.5rem;margin-bottom:2rem;}
+  .ev-methods{grid-template-columns:1fr;gap:1px;}
+  .ev-card{padding:1.5rem 1rem;}
+
+  #messages{padding:4rem 0;}
+  .messages-inner{padding:0 1.2rem;}
+  .messages-grid{grid-template-columns:1fr;gap:1px;}
+  .msg-card{padding:1.8rem 1.2rem;}
+
+  #theking{min-height:auto;}
+  .king-content{margin-left:0;padding:4rem 1.2rem 3rem;max-width:100%;}
+  .king-title{font-size:clamp(1.5rem,7vw,2.5rem);}
+  .chain-full{flex-wrap:wrap;}
+
+  #join{padding:4rem 0;}
+  .join-inner{padding:0 1.2rem;}
+  .join-title{font-size:clamp(1.5rem,7vw,2.2rem);}
+  .form-row{grid-template-columns:1fr;}
+  .form-btn{font-size:.75rem;padding:.9rem .8rem;}
+
+  footer{padding:3rem 0 1.5rem;}
+  .footer-inner{grid-template-columns:1fr;gap:2rem;padding:0 1.2rem;}
+  .footer-bottom{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem 1.2rem 0;}
+  .footer-tagline{max-width:100%;}
 }
 </style>
 </head>
@@ -480,7 +558,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
       <h2 class="vision-title">Not Religion.<br><em>Reformation.</em></h2>
       <p class="vision-body">Bring Back the King is a movement to restore Christ-like character and behavior in our church communities and nations — through the Spirit-moved Word of God in action. The model is the true righteousness of Christ, restored through sacrifice, to save humanity.</p>
       <blockquote class="vision-quote">"The first reformation was about creeds. This one is about deeds. The question is: what are you doing to expand the love of God?"</blockquote>
-      <a href="The_BBK_Vision.pdf" download="The_BBK_Vision.pdf" class="btn-primary" style="margin-top:1rem; display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">Discover the Vision <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/><line x1="5" y1="21" x2="19" y2="21"/></svg></a>
+      <a href="vision.pdf" download="vision.pdf" class="btn-primary" style="margin-top:1rem; display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">Discover the Vision <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/><line x1="5" y1="21" x2="19" y2="21"/></svg></a>
     </div>
     <div class="reveal-right">
       <div class="model-card" style="margin-bottom:1.5px;">
@@ -819,7 +897,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Bring Back the King Movement · African Reformation</p>
+    <p class="footer-copy">© 2025 Bring Back the King Movement · African Reformation</p>
     <p class="footer-verse">"Ethiopia shall soon stretch out her hands unto God." — Psalm 68:31</p>
   </div>
 </footer>
