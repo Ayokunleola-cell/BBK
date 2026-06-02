@@ -842,14 +842,14 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
     <p class="vision-label" style="text-align:center;margin-bottom:1rem">Are You the Remnant?</p>
     <h2 class="join-title">Answer the <span>Call</span></h2>
     <p class="join-body">God is looking for those who will go. Men and women of faith, sacrifice and love. If you are ready to be the change — sign up. The African Reformation needs you. Who will go for us? Say: <em>Here I am. Send me.</em></p>
-    <form class="join-form" onsubmit="handleSubmit(event)">
+    <form class="join-form" action="mailto:info@bringbacktheking.org" method="POST" enctype="text/plain">
       <div class="form-row">
-        <input class="form-input" type="text" placeholder="Your Full Name" required/>
-        <input class="form-input" type="email" placeholder="Email Address" required/>
+        <input class="form-input" type="text" name="fullName" placeholder="Your Full Name" required/>
+        <input class="form-input" type="email" name="email" placeholder="Email Address" required/>
       </div>
       <div class="form-row">
-        <input class="form-input" type="text" placeholder="Country / City"/>
-        <select class="form-select">
+        <input class="form-input" type="text" name="location" placeholder="Country / City"/>
+        <select class="form-select" name="role">
           <option value="">I am a...</option>
           <option>Church Leader / Pastor</option>
           <option>Young Reformer</option>
@@ -860,7 +860,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
           <option>Other Believer</option>
         </select>
       </div>
-      <button class="form-btn" type="submit">⚑ I Answer the Call — Join the Remnant</button>
+      <button class="form-btn" type="submit" onclick="setTimeout(() => { this.textContent = '✓ You Are Enlisted. Welcome to the Remnant.'; this.style.background = '#1a5c1a'; }, 1000);">⚑ I Answer the Call — Join the Remnant</button>
     </form>
     <p style="margin-top:1.5rem;font-family:'EB Garamond',serif;font-style:italic;font-size:.95rem;color:#999;text-align:center">Isaiah 6:8 — "Whom shall I send, and who will go for us? Here am I; send me."</p>
   </div>
@@ -916,13 +916,7 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
 // ── FORM ────────────────────────────────────
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-btn');
-  btn.textContent = '✓ You Are Enlisted. Welcome to the Remnant.';
-  btn.style.background = '#1a5c1a';
-  btn.disabled = true;
-}
+// Form submission is handled by the mailto action
 
 // ── MARQUEE CLONE ───────────────────────────
 const track = document.getElementById('marquee');
