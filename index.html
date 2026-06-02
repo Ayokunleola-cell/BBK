@@ -842,7 +842,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
     <p class="vision-label" style="text-align:center;margin-bottom:1rem">Are You the Remnant?</p>
     <h2 class="join-title">Answer the <span>Call</span></h2>
     <p class="join-body">God is looking for those who will go. Men and women of faith, sacrifice and love. If you are ready to be the change — sign up. The African Reformation needs you. Who will go for us? Say: <em>Here I am. Send me.</em></p>
-    <form class="join-form" action="https://api.web3forms.com/submit" method="POST">
+    <form class="join-form" id="join-form">
       <input type="hidden" name="access_key" value="32adb121-4799-4895-a61c-b4359dbdd7a4">
       <div class="form-row">
         <input class="form-input" type="text" name="fullName" placeholder="Your Full Name" required/>
@@ -861,7 +861,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
           <option>Other Believer</option>
         </select>
       </div>
-      <button class="form-btn" type="submit" onclick="setTimeout(() => { this.textContent = '✓ You Are Enlisted. Welcome to the Remnant.'; this.style.background = '#1a5c1a'; }, 1000);">⚑ I Answer the Call — Join the Remnant</button>
+      <button class="form-btn" type="submit">⚑ I Answer the Call — Join the Remnant</button>
     </form>
     <p style="margin-top:1.5rem;font-family:'EB Garamond',serif;font-style:italic;font-size:.95rem;color:#999;text-align:center">Isaiah 6:8 — "Whom shall I send, and who will go for us? Here am I; send me."</p>
   </div>
@@ -917,7 +917,42 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 
 // ── FORM ────────────────────────────────────
-// Form submission is handled by the mailto action
+const form = document.getElementById('join-form');
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+  const object = Object.fromEntries(formData);
+  const json = JSON.stringify(object);
+  
+  const btn = form.querySelector('.form-btn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Enlisting...';
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: json
+  })
+  .then(async (response) => {
+    if (response.status == 200) {
+      btn.textContent = '✓ You Are Enlisted. Welcome to the Remnant.';
+      btn.style.background = '#1a5c1a';
+      btn.disabled = true;
+    } else {
+      btn.textContent = 'Error, please try again.';
+      setTimeout(() => { btn.textContent = originalText; }, 3000);
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    btn.textContent = 'Error, please try again.';
+    setTimeout(() => { btn.textContent = originalText; }, 3000);
+  });
+});
 
 // ── MARQUEE CLONE ───────────────────────────
 const track = document.getElementById('marquee');
