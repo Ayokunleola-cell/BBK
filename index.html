@@ -488,6 +488,216 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
   .footer-bottom{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem 1.2rem 0;}
   .footer-tagline{max-width:100%;}
 }
+
+/* ═══════════════════════════════════════
+   CORE VALUES
+═══════════════════════════════════════ */
+#values {
+  background: var(--white);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+#values::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--red), var(--gold), var(--red));
+}
+#values::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--red), var(--gold), var(--red));
+}
+.values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+.values-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.values-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: .65rem;
+  letter-spacing: .45em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: .8rem;
+}
+.values-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1.15;
+  margin-bottom: .8rem;
+}
+.values-title em { color: var(--red); font-style: normal; }
+.values-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 620px;
+  margin: 0 auto 1rem;
+  line-height: 1.7;
+}
+.values-scripture {
+  font-family: 'Oswald', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 3rem;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5px;
+  background: rgba(192, 5, 26, .08);
+  margin-bottom: 4rem;
+}
+.value-card {
+  background: var(--white);
+  padding: 2.5rem 2rem 2rem;
+  position: relative;
+  transition: all .35s ease;
+  cursor: default;
+  overflow: hidden;
+}
+.value-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s ease;
+}
+.value-card:hover {
+  background: var(--dark);
+  transform: translateY(-4px);
+  z-index: 2;
+  box-shadow: 0 12px 40px rgba(192,5,26,.2);
+}
+.value-card:hover::before { transform: scaleX(1); }
+.value-num {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: rgba(192,5,26,.07);
+  position: absolute;
+  top: .8rem; right: 1.2rem;
+  line-height: 1;
+  transition: color .35s;
+  user-select: none;
+}
+.value-card:hover .value-num { color: rgba(192,5,26,.18); }
+.value-icon-wrap {
+  width: 48px; height: 48px;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.value-icon-wrap svg {
+  width: 100%; height: 100%;
+  stroke: var(--red);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke .35s;
+}
+.value-card:hover .value-icon-wrap svg { stroke: var(--gold); }
+.value-name {
+  font-family: 'Cinzel', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: .7rem;
+  transition: color .35s;
+  line-height: 1.3;
+}
+.value-card:hover .value-name { color: var(--white); }
+.value-desc {
+  font-family: 'EB Garamond', serif;
+  font-size: .95rem;
+  line-height: 1.7;
+  color: #555;
+  transition: color .35s;
+}
+.value-card:hover .value-desc { color: rgba(253,250,245,.65); }
+.value-live {
+  font-family: 'Oswald', sans-serif;
+  font-size: .62rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-top: .9rem;
+  display: block;
+  transition: color .35s;
+}
+.value-card:hover .value-live { color: var(--gold); }
+.values-declaration {
+  background: var(--dark);
+  padding: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.values-declaration::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,5,26,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.decl-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: .8rem;
+  position: relative;
+  z-index: 1;
+}
+.decl-title span { color: var(--red); }
+.decl-body {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(253,250,245,.6);
+  max-width: 700px;
+  margin: 0 auto .8rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+.decl-scripture {
+  font-family: 'Oswald', sans-serif;
+  font-size: .68rem;
+  letter-spacing: .2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+@media(max-width:900px){
+  .values-grid { grid-template-columns: 1fr 1fr; }
+  .values-inner { padding: 0 1.5rem; }
+}
+@media(max-width:560px){
+  .values-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -502,6 +712,7 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
     <li><a href="#reformation">Reformation</a></li>
     <li><a href="#evangelism">Mission</a></li>
     <li><a href="#messages">Messages</a></li>
+    <li><a href="#values">Values</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">Answer the Call</button>
 </nav>
@@ -833,6 +1044,162 @@ footer{background:var(--black);border-top:1px solid rgba(192,5,26,.2);padding:4r
     </div>
     <p style="font-size:1rem;line-height:1.8;color:rgba(253,250,245,.6)">Bringing back the King means bringing back His character — His obedience, His love, His sacrifice. Not in word alone. Not in ceremony. In deed. In truth. In fire.</p>
     <button class="btn-primary" style="margin-top:2rem" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">I Hear the Call</button>
+  </div>
+</section>
+
+<!-- ═══ 12 CORE VALUES ═══ -->
+<section id="values">
+  <div class="values-inner">
+    <div class="values-header reveal">
+      <span class="values-eyebrow">The Character of the King</span>
+      <h2 class="values-title">12 Core Values of the<br><em>African Reformation</em></h2>
+      <p class="values-subtitle">These are not rules to follow. They are a life to live — the character of Christ made visible in every believer, every family, every community. This is what Bring Back the King looks like in daily human life.</p>
+      <span class="values-scripture">Galatians 5:22–23 · Matthew 5:3–12 · Micah 6:8</span>
+    </div>
+
+    <div class="values-grid">
+
+      <!-- 1. UNCONDITIONAL LOVE -->
+      <div class="value-card reveal">
+        <div class="value-num">1</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M24 40s-16-9.6-16-22a10 10 0 0 1 16-8 10 10 0 0 1 16 8c0 12.4-16 22-16 22z"/></svg>
+        </div>
+        <p class="value-name">Unconditional Love</p>
+        <p class="value-desc">Love that does not depend on how you are treated. Love that gives without counting the cost and serves without needing to be thanked.</p>
+        <span class="value-live">Live it · Love someone today who has not earned it</span>
+      </div>
+
+      <!-- 2. RADICAL HONESTY -->
+      <div class="value-card reveal" style="transition-delay:.05s">
+        <div class="value-num">2</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><polyline points="16,24 21,29 32,18"/></svg>
+        </div>
+        <p class="value-name">Radical Honesty</p>
+        <p class="value-desc">Telling the truth when a lie is easier. Refusing to deceive, manipulate, or wear a mask. The reformation cannot be built on anything but the truth.</p>
+        <span class="value-live">Live it · Say what is true, not what is comfortable</span>
+      </div>
+
+      <!-- 3. LOYAL COMMITMENT -->
+      <div class="value-card reveal" style="transition-delay:.1s">
+        <div class="value-num">3</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M24 8 L30 18 L42 20 L33 29 L35 41 L24 35 L13 41 L15 29 L6 20 L18 18 Z"/></svg>
+        </div>
+        <p class="value-name">Loyal Commitment</p>
+        <p class="value-desc">Standing by your covenant when it is costly. Loyalty to God, to the community, and to the mission — even when everything tempts you to walk away.</p>
+        <span class="value-live">Live it · Keep the promise you made when it was easier</span>
+      </div>
+
+      <!-- 4. DEEP HUMILITY -->
+      <div class="value-card reveal" style="transition-delay:.15s">
+        <div class="value-num">4</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M24 6 L24 42 M12 18 L24 6 L36 18"/><circle cx="24" cy="36" r="6"/></svg>
+        </div>
+        <p class="value-name">Deep Humility</p>
+        <p class="value-desc">Not thinking less of yourself — thinking of yourself less. The reformer who does not lead with humility does not lead with the King's authority.</p>
+        <span class="value-live">Live it · Serve today where no one will notice or applaud</span>
+      </div>
+
+      <!-- 5. SELF-SACRIFICE -->
+      <div class="value-card reveal" style="transition-delay:.2s">
+        <div class="value-num">5</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><line x1="24" y1="4" x2="24" y2="44"/><line x1="8" y1="18" x2="40" y2="18"/></svg>
+        </div>
+        <p class="value-name">Self-Sacrifice</p>
+        <p class="value-desc">The willingness to lay down your comfort, your time, your resources — and your life — for the good of another. This is the King's defining characteristic.</p>
+        <span class="value-live">Live it · Give something today that costs you something real</span>
+      </div>
+
+      <!-- 6. LIVING RIGHTEOUSNESS -->
+      <div class="value-card reveal" style="transition-delay:.25s">
+        <div class="value-num">6</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M24 6 L30 18 L44 20 L34 30 L36 44 L24 37 L12 44 L14 30 L4 20 L18 18 Z"/><circle cx="24" cy="24" r="6" fill="none"/></svg>
+        </div>
+        <p class="value-name">Living Righteousness</p>
+        <p class="value-desc">Doing what is right even when it is not rewarded. Justice, integrity, and moral courage — not as religion but as a daily way of life that reflects the King's nature.</p>
+        <span class="value-live">Live it · Do the right thing in one hard situation today</span>
+      </div>
+
+      <!-- 7. HARMONY IN DIVERSITY -->
+      <div class="value-card reveal" style="transition-delay:.3s">
+        <div class="value-num">7</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><circle cx="16" cy="20" r="7"/><circle cx="32" cy="20" r="7"/><circle cx="24" cy="33" r="7"/><line x1="16" y1="20" x2="32" y2="20" stroke-dasharray="3 2"/><line x1="16" y1="20" x2="24" y2="33" stroke-dasharray="3 2"/><line x1="32" y1="20" x2="24" y2="33" stroke-dasharray="3 2"/></svg>
+        </div>
+        <p class="value-name">Harmony in Diversity</p>
+        <p class="value-desc">Africa has over 2,000 languages and 54 nations. The Kingdom belongs to every tribe and tongue. We celebrate difference and refuse every form of tribalism, racism, and division.</p>
+        <span class="value-live">Live it · Build a genuine relationship across a cultural line</span>
+      </div>
+
+      <!-- 8. GRACIOUS COURTESY -->
+      <div class="value-card reveal" style="transition-delay:.35s">
+        <div class="value-num">8</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M14 24 C14 24 18 30 24 30 C30 30 34 24 34 24"/><circle cx="18" cy="18" r="3"/><circle cx="30" cy="18" r="3"/><circle cx="24" cy="24" r="16" fill="none"/></svg>
+        </div>
+        <p class="value-name">Gracious Courtesy</p>
+        <p class="value-desc">Treating every human being with dignity and respect — regardless of their status, background, or behavior toward you. The King touched the untouchable. So must we.</p>
+        <span class="value-live">Live it · Treat the person society ignores with full dignity today</span>
+      </div>
+
+      <!-- 9. PURSUIT OF EXCELLENCE -->
+      <div class="value-card reveal" style="transition-delay:.4s">
+        <div class="value-num">9</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><polygon points="24,4 28,18 44,18 31,28 36,42 24,33 12,42 17,28 4,18 20,18"/></svg>
+        </div>
+        <p class="value-name">Pursuit of Excellence</p>
+        <p class="value-desc">Doing your best work as an act of worship. Daniel was ten times better than his peers. The African reformer represents the King — mediocrity is not an option.</p>
+        <span class="value-live">Live it · Bring your absolute best to the work in front of you today</span>
+      </div>
+
+      <!-- 10. STEADFAST DILIGENCE -->
+      <div class="value-card reveal" style="transition-delay:.45s">
+        <div class="value-num">10</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M8 40 L8 24 L16 16 L16 40"/><path d="M20 40 L20 18 L28 10 L28 40"/><path d="M32 40 L32 22 L40 14 L40 40"/><line x1="6" y1="40" x2="42" y2="40"/></svg>
+        </div>
+        <p class="value-name">Steadfast Diligence</p>
+        <p class="value-desc">Patient, persistent, consistent effort — even when results are slow. The reformation is not built in a moment. It is built day by day, deed by deed, by people who refuse to quit.</p>
+        <span class="value-live">Live it · Return to the task you have been avoiding — and finish it</span>
+      </div>
+
+      <!-- 11. ACTIVE JUSTICE -->
+      <div class="value-card reveal" style="transition-delay:.5s">
+        <div class="value-num">11</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><line x1="24" y1="6" x2="24" y2="42"/><line x1="10" y1="14" x2="38" y2="14"/><circle cx="10" cy="26" r="6" fill="none"/><circle cx="38" cy="26" r="6" fill="none"/><line x1="10" y1="20" x2="10" y2="14"/><line x1="38" y1="20" x2="38" y2="14"/><line x1="18" y1="42" x2="30" y2="42"/></svg>
+        </div>
+        <p class="value-name">Active Justice</p>
+        <p class="value-desc">Speaking up and acting when others are silent. Justice is not a feeling — it is a deed. To do righteousness and justice is more acceptable to God than sacrifice. Proverbs 21:3.</p>
+        <span class="value-live">Live it · Speak up for someone who cannot speak for themselves</span>
+      </div>
+
+      <!-- 12. FAITH IN ACTION -->
+      <div class="value-card reveal" style="transition-delay:.55s">
+        <div class="value-num">12</div>
+        <div class="value-icon-wrap">
+          <svg viewBox="0 0 48 48"><path d="M24 6 C24 6 38 16 38 28 C38 36 31 42 24 44 C17 42 10 36 10 28 C10 16 24 6 24 6Z"/><path d="M24 18 C24 18 31 23 31 29 C31 33 27.5 36 24 37 C20.5 36 17 33 17 29 C17 23 24 18 24 18Z" fill="currentColor" opacity=".2"/></svg>
+        </div>
+        <p class="value-name">Faith in Action</p>
+        <p class="value-desc">Belief that does not stay in the pew. Faith that walks out of the church and into the street, the office, the courtroom, and the community. Faith proved by deeds, not declarations.</p>
+        <span class="value-live">Live it · Do one thing this week that only makes sense if God is real</span>
+      </div>
+
+    </div><!-- /values-grid -->
+
+    <!-- DECLARATION STRIP -->
+    <div class="values-declaration reveal">
+      <h3 class="decl-title">These Values Are <span>Not a Program.</span><br>They Are a Person — The King.</h3>
+      <p class="decl-body">Every one of these values was perfectly demonstrated by Jesus Christ. He loved unconditionally, lived honestly, stayed loyal under torture, served with humility, gave his life in sacrifice, pursued righteousness, welcomed every tribe and people, treated the lowest with courtesy, worked with excellence, persevered with diligence, fought for justice, and proved his faith at the cross.</p>
+      <span class="decl-scripture">Galatians 5:22 · John 13:34 · Micah 6:8 · 1 Corinthians 13</span>
+    </div>
+
   </div>
 </section>
 
